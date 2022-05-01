@@ -39,7 +39,7 @@ var chosen = function (playerAnswer, botAnswer) {
         bot.style.zIndex = '0';        
         if(!jsConfetti.addConfetti()) jsConfetti.addConfetti();
         setTimeout(() => {
-          confirm();
+          playAgain();
         }, 3000);
       } else {
         alert(`You Win! 
@@ -58,7 +58,7 @@ var chosen = function (playerAnswer, botAnswer) {
         player.style.zIndex = '0';
         if(!jsConfetti.addConfetti()) jsConfetti.addConfetti();
         setTimeout(() => {
-          confirm();
+          playAgain();
         }, 3000);
         
       } else {
@@ -84,16 +84,14 @@ var startGame = function() {
   }
 }
 
-var confirm = function() {
-  var askToPlayAgain = prompt('Play Again? 1 for Yes, any other key for No');
-  if(askToPlayAgain === "1") {
+var playAgain = function() {
+  
+  if(confirm('Play again?')) {
     playerScore = 0;
     botScore = 0;
     bot.style.transform = 'scale(1) translateX(0) translateY(0)';
     player.style.transform = 'scale(1) translateX(0) translateY(0)';
-    setTimeout(() => {      
-      startGame();
-    }, 100);
+    startGame();
   } else {
     reset();
   }
