@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.jsdelivr.net/npm/js-confetti@latest/dist/js-confetti.browser.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <title>Rock! Paper! Scissors!</title>
+    <style>
+
+      body {
+        height: 100vh;
+        font-family: monospace;
+        position: relative;
+        text-align: center;
+      }   
+
+      #confetti {
+        position: absolute;
+        left: 0;
+        right: 0;
+        top: 0;
+        bottom: 0;
+        background:transparent;
+        z-index: 2;
+        height: 350px;
+        width: 100%;
+      }
+      
+      .wrapper {
+        display: flex;
+        justify-content: center;
+        align-items:center;
+        gap: 80px;
+        height: auto;
+        margin-top: 50px;
+        font-size: 1.2rem;
+        color: rgb(87, 138, 215);
+      }
+  
+      .player,
+      .bot {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 30px;
+        transition: all 1s ease;
+      }
+
+      img {
+        border-radius: 100%;
+        display: block;
+        width: 100px;
+        height: 120px;
+        box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.553);
+      }
+
+      button {
+        width: 200px;
+        border: none;
+        padding: 10px 20px;
+        border-radius: 10px;
+        background: rgb(87, 138, 215);
+        color: #fff;
+        font-size: 1.5rem;
+        font-weight: bold;
+        box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.34);
+        margin-top: 100px;
+        letter-spacing: 2px;
+        cursor: pointer;
+      }
+
+      button:active {
+        transform: scale(0.95);
+      }
+
+    </style>
+</head>
+<body>
+    <div class="wrapper">
+      <canvas id="confetti"></canvas>
+      <div class="player" >
+        <h2>You</h2>
+        <img src="https://images.unsplash.com/photo-1583337130417-3346a1be7dee?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=928&q=80" alt="player one" >
+      </div>
+      <div class="bot">
+        <h2>Bot</h2>
+        <img src="https://images.unsplash.com/photo-1533738363-b7f9aef128ce?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80" alt="player two">
+      </div>
+    </div>
+    <button>Game Start</button>
+  
+    <!-- <script src="app.js"></script> -->
+    <script src="try.js"></script>
+</body>
+</html>    
