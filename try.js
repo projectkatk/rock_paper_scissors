@@ -85,7 +85,7 @@ var startGame = function() {
 }
 
 var confirm = function() {
-  var askToPlayAgain = prompt('Play Again? 1 for Yes, 2 for No');
+  var askToPlayAgain = prompt('Play Again? 1 for Yes, any other key for No');
   if(askToPlayAgain === "1") {
     playerScore = 0;
     botScore = 0;
