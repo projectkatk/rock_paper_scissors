@@ -35,11 +35,12 @@ var chosen = function (playerAnswer, botAnswer) {
         Your Score: ${playerScore}, Bot Score: ${botScore}
         You: ${choice[playerAnswer]}, Bot: ${choice[botAnswer]}`)
         player.style.transform = 'scale(4) translateX(25%) translateY(10%)';
-        jsConfetti.addConfetti();
+        player.style.zIndex = '1';
+        bot.style.zIndex = '0';        
+        if(!jsConfetti.addConfetti()) jsConfetti.addConfetti();
         setTimeout(() => {
-          reset();
-        }, 2000);
-
+          confirm();
+        }, 3000);
       } else {
         alert(`You Win! 
         You Score: ${playerScore}, Bot Score: ${botScore}
@@ -53,10 +54,13 @@ var chosen = function (playerAnswer, botAnswer) {
         Your Score: ${playerScore}, Bot Score: ${botScore}
         You: ${choice[playerAnswer]}, Bot: ${choice[botAnswer]}`);
         bot.style.transform = 'scale(4) translateX(-25%) translateY(10%)';
-        jsConfetti.addConfetti();
+        bot.style.zIndex = '1';
+        player.style.zIndex = '0';
+        if(!jsConfetti.addConfetti()) jsConfetti.addConfetti();
         setTimeout(() => {
-          reset();
-        }, 2000);
+          confirm();
+        }, 3000);
+        
       } else {
         alert(`Bot Wins! 
         Bot Score: ${botScore}, Your Score: ${playerScore}
@@ -66,14 +70,31 @@ var chosen = function (playerAnswer, botAnswer) {
     }      
   }
 }
-var startGame = function() {  
+var startGame = function() {
   var playerAnswer = parseInt(prompt('Type in 1 for Rock, 2 for Paper, 3 for Scissors.'));
   var botAnswer = Math.floor(Math.random()*3 + 1);  
+  bot.style.transform = 'scale(1)';
+  player.style.transform = 'scale(1)';
 
   if(playerAnswer === null || isNaN(playerAnswer) || playerAnswer === undefined || playerAnswer > 3) {
     alert("Enter the correct answer!!!!! 1 for Rock, 2 for Paper, and 3 for Scissors!!!!!");
     startGame();
   } else {
     chosen(playerAnswer, botAnswer);
+  }
+}
+
+var confirm = function() {
+  var askToPlayAgain = prompt('Play Again? 1 for Yes, 2 for No');
+  if(askToPlayAgain === "1") {
+    playerScore = 0;
+    botScore = 0;
+    bot.style.transform = 'scale(1) translateX(0) translateY(0)';
+    player.style.transform = 'scale(1) translateX(0) translateY(0)';
+    setTimeout(() => {      
+      startGame();
+    }, 100);
+  } else {
+    reset();
   }
 }
